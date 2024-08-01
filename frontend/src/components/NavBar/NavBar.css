@@ -1,0 +1,53 @@
+.main-header {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  width: 12%;
+}
+.main-nav {
+  display: flex;
+  column-gap: 3rem;
+  font-size: 1.8rem;
+  color: var(--clr-primary-200);
+  cursor: pointer;
+}
+.header-icons {
+  display: flex;
+  column-gap: 4rem;
+  align-items: center;
+  position: relative;
+}
+
+.header-icons button {
+  background: transparent;
+  padding: 1rem 3rem;
+  border-radius: 10rem;
+  font-size: 1.6rem;
+  color: var(--clr-primary-200);
+  border: 1px solid var(--clr-primary-200);
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+.header-icons button:hover {
+  background-color: tomato;
+  border: 1px solid tomato;
+  color: #fff;
+}
+.active {
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--clr-primary-200);
+  font-weight: 700;
+}
+.header-icons .dot {
+  position: absolute;
+  min-height: 0.8rem;
+  min-width: 0.8rem;
+  background-color: tomato;
+  border-radius: 0.5rem;
+  top: 0px;
+  left: 88px;
+}

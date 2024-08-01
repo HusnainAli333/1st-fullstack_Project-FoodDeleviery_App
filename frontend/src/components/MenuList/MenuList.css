@@ -1,0 +1,24 @@
+.explore-menu {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+.explore-menu h1 {
+  font-weight: 500;
+  color: #262626;
+  font-size: max(4vw, 1.2rem);
+}
+.explore-menu p {
+  max-width: 60%;
+  font-size: max(1vw, 0.8rem);
+}
+.explore-menu-list {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  column-gap: 10rem;
+  overflow-x: scroll;
+}
+.explore-menu-list::-webkit-scrollbar {
+  background-color: white;
+}
