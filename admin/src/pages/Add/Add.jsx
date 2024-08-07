@@ -1,8 +1,7 @@
 import { useState } from "react";
-import axios from "axios";
 import { assets } from "../../utils/assets";
+import { handleAdd } from "../../utils/foodFunctions";
 import "./Add.css";
-import { toast } from "react-toastify";
 
 function Add() {
   const [image, setImage] = useState(false);
@@ -29,23 +28,7 @@ function Add() {
     formData.append("category", data.category);
     formData.append("image", image);
 
-    const Response = await axios.post(
-      "http://localhost:5000/api/food/add",
-      formData
-    );
-
-    if (Response.data.success) {
-      setData({
-        name: "",
-        price: "",
-        description: "",
-        category: "salad",
-      });
-      setImage(false);
-      toast.success(Response.data.message);
-    } else {
-      toast.error(Response.data.message);
-    }
+    handleAdd(formData, setData, setImage);
   }
 
   return (

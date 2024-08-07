@@ -11,9 +11,9 @@ function App() {
       <ToastContainer />
       <Routes>
         <Route element={<Layout />}>
-          <Route indexelement={<Navigate replace to="add" />} />
+          <Route indexelement={<Navigate replace to="/" />} />
+          <Route path="/" element={<List />} />
           <Route path="/add" element={<Add />} />
-          <Route path="/list" element={<List />} />
           <Route path="/orders" element={<Orders />} />
         </Route>
       </Routes>

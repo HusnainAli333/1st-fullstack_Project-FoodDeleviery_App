@@ -10,7 +10,7 @@ function SideBar() {
           <img src={assets.add_icon} alt="add icon" />
           <p>Add Items</p>
         </NavLink>
-        <NavLink to="/list" className="sidebar-option">
+        <NavLink to="/" className="sidebar-option">
           <img src={assets.order_icon} alt="add icon" />
           <p>List items</p>
         </NavLink>

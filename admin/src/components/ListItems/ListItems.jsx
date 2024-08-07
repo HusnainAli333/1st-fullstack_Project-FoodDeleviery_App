@@ -1,7 +1,6 @@
 import { RxCross2 } from "react-icons/rx";
+import { handleDelete } from "../../utils/foodFunctions";
 import "./ListItems.css";
-import axios from "axios";
-import { toast } from "react-toastify";
 
 function ListItems({ list }) {
   return (
@@ -23,22 +22,6 @@ function ListItems({ list }) {
   );
 }
 function ListItem({ item }) {
-  async function handleDelete(idfood) {
-    try {
-      const Response = await axios.post(
-        "http://localhost:5000/api/food/remove",
-        {
-          id: idfood,
-        }
-      );
-      console.log(Response);
-      toast.success(Response.data.message);
-    } catch (error) {
-      console.log(error);
-      toast.success(Response.data.message);
-    }
-  }
-
   return (
     <div className="list-table-format">
       <img src={`http://localhost:5000/images/${item.image}`} alt={item.name} />
