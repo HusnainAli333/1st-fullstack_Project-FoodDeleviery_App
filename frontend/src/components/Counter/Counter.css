@@ -1,0 +1,26 @@
+.food-item-image-container .add {
+  width: 3.5rem;
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #cccc;
+}
+.food-item-counter img {
+  cursor: pointer;
+  width: 30%;
+  border-radius: 0;
+}
+.food-item-counter {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem;
+  border-radius: 5rem;
+  /* background-color: #eee; */
+}

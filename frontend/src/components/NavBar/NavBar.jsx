@@ -1,46 +1,53 @@
-import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { icons } from "../../utils/icons";
 import "./NavBar.css";
-function Header() {
-  const [menu, setMenu] = useState("home");
+import { useAppContext } from "../../context/ContextProvider";
+
+function Header({ setShowLogin }) {
+  const { cartTotal } = useAppContext();
+
   return (
     <div className="main-header">
-      <img src={icons.logo} alt="icon of Logo" className="logo" />
+      <Link to="/">
+        <img src={icons.logo} alt="icon of Logo" className="logo" />
+      </Link>
       <nav>
         <ul className="main-nav">
-          <li
-            onClick={() => setMenu("home")}
-            className={menu === "home" ? "active" : ""}
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "active" : "")}
           >
             Home
-          </li>
-          <li
-            onClick={() => setMenu("menu")}
-            className={menu === "menu" ? "active" : ""}
+          </NavLink>
+          <NavLink
+            to="/menu"
+            className={({ isActive }) => (isActive ? "active" : "")}
           >
             Menu
-          </li>
-          <li
-            onClick={() => setMenu("mobile")}
-            className={menu === "mobile" ? "active" : ""}
+          </NavLink>
+          <NavLink
+            to="/mobileapp"
+            className={({ isActive }) => (isActive ? "active" : "")}
           >
             Mobile app
-          </li>
-          <li
-            onClick={() => setMenu("contact")}
-            className={menu === "contact" ? "active" : ""}
+          </NavLink>
+          <NavLink
+            to="/contactus"
+            className={({ isActive }) => (isActive ? "active" : "")}
           >
             Contact Us
-          </li>
+          </NavLink>
         </ul>
       </nav>
       <div className="header-icons">
         <img src={icons.search_icon} alt="search icon" />
         <div>
-          <img src={icons.basket_icon} alt="bag icon" />
-          <div className="dot"></div>
+          <Link to="/cart">
+            <img src={icons.basket_icon} alt="bag icon" />
+          </Link>
+          <div className={cartTotal ? "dot" : ""}></div>
         </div>
-        <button>Sign In</button>
+        <button onClick={() => setShowLogin((c) => !c)}>Sign In</button>
       </div>
     </div>
   );
