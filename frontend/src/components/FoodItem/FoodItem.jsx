@@ -7,7 +7,7 @@ function FoodItem({ food }) {
   return (
     <div className="food-item">
       <div className="food-item-image-container">
-        <img src={image} alt={description} />
+        <img src={`http://localhost:5000/images/${image}`} alt={description} />
         <Counter food={food} />
         <div className="food-item-info">
           <div className="food-item-rating">

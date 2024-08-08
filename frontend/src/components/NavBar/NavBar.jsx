@@ -1,10 +1,17 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, Navigate, NavLink } from "react-router-dom";
 import { icons } from "../../utils/icons";
 import "./NavBar.css";
 import { useAppContext } from "../../context/ContextProvider";
 
 function Header({ setShowLogin }) {
   const { cartTotal } = useAppContext();
+  const { token, setToken } = useAppContext();
+
+  function handleLogout() {
+    localStorage.removeItem("token");
+    setToken("");
+    Navigate("/");
+  }
 
   return (
     <div className="main-header">
@@ -47,7 +54,24 @@ function Header({ setShowLogin }) {
           </Link>
           <div className={cartTotal ? "dot" : ""}></div>
         </div>
-        <button onClick={() => setShowLogin((c) => !c)}>Sign In</button>
+        {!token ? (
+          <button onClick={() => setShowLogin((c) => !c)}>Sign In</button>
+        ) : (
+          <div className="navbar-profile">
+            <img src={icons.profile_icon} alt="profile icon" />
+            <ul className="nav-profile-dropdown">
+              <li>
+                <img src={icons.bag_icon} alt="bag" />
+                <p>orders</p>
+              </li>
+              <hr />
+              <li>
+                <img src={icons.logout_icon} alt="logout" />
+                <p onClick={handleLogout}>logout</p>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

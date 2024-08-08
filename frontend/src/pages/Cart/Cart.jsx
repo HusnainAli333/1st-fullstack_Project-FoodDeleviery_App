@@ -72,7 +72,10 @@ function CartItem({ item, removeFromCart }) {
   return (
     <>
       <div className="cart-items-title cart-items-item">
-        <img src={item.image} alt={item.name} />
+        <img
+          src={`http://localhost:5000/images/${item.image}`}
+          alt={item.name}
+        />
         <p>{item.name}</p>
         <p>${item.price}</p>
         <p>{item.quantity}</p>

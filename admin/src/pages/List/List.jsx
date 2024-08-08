@@ -5,15 +5,16 @@ import "./List.css";
 
 function List() {
   const [list, setList] = useState([]);
-  const [, setIsLoading] = useState(false);
+  const [refresh, setRefresh] = useState(false);
+  // const [, setIsLoading] = useState(false);
 
   useEffect(() => {
-    fetchList(setIsLoading, setList);
-  }, []);
+    fetchList(setList);
+  }, [refresh]);
 
   return (
     <>
-      <ListItems list={list} />
+      <ListItems list={list} refresh={refresh} setRefresh={setRefresh} />
     </>
   );
 }

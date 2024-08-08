@@ -52,6 +52,41 @@
   left: 88px;
 }
 
+.navbar-profile {
+  position: relative;
+  cursor: pointer;
+}
+.nav-profile-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+.navbar-profile:hover .nav-profile-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #fff2ef;
+  padding: 1.2rem 2.5rem;
+  border-radius: 0.4rem;
+  outline: 2px solid white;
+  list-style: none;
+}
+.nav-profile-dropdown li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.nav-profile-dropdown img {
+  width: 2rem;
+}
+
+.nav-profile-dropdown li:hover {
+  color: tomato;
+}
+
 @media (max-width: 1050px) {
   .main-header .log {
     width: 14rem;

@@ -1,25 +1,15 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-export async function fetchList(setIsLoading, setList) {
-  setIsLoading(true);
+export async function fetchList(setList) {
   try {
-    toast.info("Loading...", { autoClose: true });
-    await new Promise((resolve) => setTimeout(resolve, 3000));
     const Response = await axios.get(
       "http://localhost:5000/api/food/fetchFood"
     );
 
-    console.log(Response);
     setList(Response.data.data);
-    toast.dismiss();
-    toast.success("Food Items Fetched!");
   } catch (error) {
-    console.log(error);
-    toast.dismiss();
     toast.error("Something went wrong");
-  } finally {
-    setIsLoading(false);
   }
 }
 

@@ -14,8 +14,7 @@ function Add() {
   });
 
   function onChange(event) {
-    const name = event.target.name;
-    const value = event.target.value;
+    const { name, value } = event.target;
     setData((c) => ({ ...c, [name]: value }));
   }
 

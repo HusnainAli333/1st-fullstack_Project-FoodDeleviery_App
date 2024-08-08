@@ -1,10 +1,20 @@
-import { createContext, useContext, useState } from "react";
-import { foodList } from "../utils/foodList";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export const Context = createContext(null);
 
 function ContextProvider({ children }) {
   const [cart, setCart] = useState([]);
+  const [foodList, setFoodList] = useState([]);
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
+  console.log(foodList);
+  useEffect(function () {
+    async function fetchList() {
+      const response = await fetch("http://localhost:5000/api/food/fetchFood");
+      const data = await response.json();
+      setFoodList(data.data);
+    }
+    fetchList();
+  }, []);
 
   let cartTotal = cart?.reduce((prev, curr) => {
     return curr.price * curr.quantity + prev;
@@ -53,6 +63,8 @@ function ContextProvider({ children }) {
         decreaseQuantity,
         removeFromCart,
         cartTotal,
+        token,
+        setToken,
       }}
     >
       {children}
