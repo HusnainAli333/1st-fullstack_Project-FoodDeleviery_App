@@ -3,6 +3,8 @@ import Cors from "cors";
 import { DataBaseConnect } from "./config/database.js";
 import foodRouter from "./routes/foodRoutes.js";
 import userRoutes from "./routes/userRouters.js";
+import cartRouter from "./routes/cartRouters.js";
+import orderRouter from "./routes/orderRouters.js";
 import "dotenv/config.js";
 
 const PORT = 5000;
@@ -15,6 +17,8 @@ DataBaseConnect();
 
 App.use("/images", Express.static("uploads"));
 App.use("/api/food", foodRouter);
+App.use("/api/cart", cartRouter);
+App.use("/api/order", orderRouter);
 App.use("/api", userRoutes);
 
 App.listen(PORT, () => {
